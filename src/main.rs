@@ -1,8 +1,7 @@
 extern crate gtk;
 extern crate hyper;
 
-use gtk::traits::*;
-use gtk::signal::Inhibit;
+use gtk::prelude::*;
 
 use std::io::Read;
 
@@ -13,7 +12,7 @@ fn main() {
     gtk::init();
 
     // Create Top Level Window
-    let window = gtk::Window::new(gtk::WindowType::TopLevel).unwrap();
+    let window = gtk::Window::new(gtk::WindowType::Toplevel);
 
     // Setup Window Stuff
     window.set_title("Exosite Timestamp Reader Thing");
@@ -27,9 +26,9 @@ fn main() {
     });
 
     // Create UI Elements
-    let vbox = gtk::Box::new(gtk::Orientation::Vertical, 10).unwrap();
-    let label = gtk::Label::new("Click Update, I Dare You!").unwrap();
-    let button = gtk::Button::new_with_label("Update").unwrap();
+    let vbox = gtk::Box::new(gtk::Orientation::Vertical, 10);
+    let label = gtk::Label::new(Some("Click Update, I Dare You!"));
+    let button = gtk::Button::new_with_label("Update");
 
     // Connect Up Layout
     vbox.add(&label);
